@@ -1,4 +1,5 @@
 from flask_restful import Resource, reqparse
+from models.hotel import HotelModel
 
 
 hotels = [
@@ -55,7 +56,6 @@ class Hotel(Resource):
         }
         return built_body
 
-
     def get(self, hotel_id):
         hotel = self.find_hotel_by_id(hotel_id)
         if hotel:
@@ -64,19 +64,22 @@ class Hotel(Resource):
 
     def post(self, hotel_id):
         body = self.get_body_args()
-        new_hotel = self.mount_body(hotel_id, body)
+        # new_hotel = self.mount_body(hotel_id, body)
+        new_hotel = HotelModel(hotel_id, **body).json()
 
         hotels.append(new_hotel)
         return new_hotel, 201
 
     def put(self, hotel_id):
         body = self.get_body_args()
-        new_hotel = self.mount_body(hotel_id, body)
+        # new_hotel = self.mount_body(hotel_id, body)
+        new_hotel = HotelModel(hotel_id, **body).json()
 
         hotel = self.find_hotel_by_id(hotel_id)
         if hotel:
             hotel.update(new_hotel)
             return new_hotel, 200
+
         hotels.append(new_hotel)
         return hotel, 201
 
