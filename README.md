@@ -43,7 +43,7 @@ $    make usage
 - DELETE /hotel/id
 
 ## Documentation
-- To speed up the use of API, use [postman requests collection](docs/postman/REST-API-FLASK.postman_collection.json)
+- To speed up the use of API, use [postman requests collection](docs/postman/v1/REST-API-FLASK.postman_collection.json)
 
 
 ## Contribuiting

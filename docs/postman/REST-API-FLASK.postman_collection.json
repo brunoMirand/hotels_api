@@ -7,138 +7,327 @@
 	},
 	"item": [
 		{
-			"name": "GET /hotels",
+			"name": "v1 API",
+			"item": [
+				{
+					"name": "GET /hotels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/v1/hotels/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"hotels",
+								""
+							]
+						},
+						"description": "Get all Hoteis"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /v1/hotels/{hotel_id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:5000/v1/hotels/alpha",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "5000",
+							"path": [
+								"hotels",
+								"alpha"
+							]
+						},
+						"description": "Get hotel by id"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /v1/hotels/{hotel_id}",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Solar-8 Hotel\",\n\t\"stars\": 5,\n\t\"daily_rate\": 5550.000,\n\t\"city\": \"CA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:5000/v1/hotels/flask-8solar",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "5000",
+							"path": [
+								"hotels",
+								"flask-8solar"
+							]
+						},
+						"description": "POST hotel by id"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /v1/hotels/{hotel_id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:5000/v1/hotels/{hote_id}",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "5000",
+							"path": [
+								"hotels",
+								"{hote_id}"
+							]
+						},
+						"description": "PUT hotel by id"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /v1/hotels/{hotel_id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:5000/v1/hotels/{hote_id}",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "5000",
+							"path": [
+								"hotels",
+								"{hote_id}"
+							]
+						},
+						"description": "DELETE hotel by id"
+					},
+					"response": []
+				}
+			],
+			"description": "v1 API - CRUD in memory",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "v2 API",
+			"item": [
+				{
+					"name": "GET /v2/hotels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/v2/hotels/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"v2",
+								"hotels",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /v2/hotels/{hotel_id}",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Tony Manero Hotel\",\n\t\"stars\": 5,\n\t\"daily_rate\": 5550.500,\n\t\"city\": \"BO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:5000/v2/hotels/travolta",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "5000",
+							"path": [
+								"v2",
+								"hotels",
+								"travolta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /v2/hotels/{hotel_id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:5000/v2/hotels/fow",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "5000",
+							"path": [
+								"v2",
+								"hotels",
+								"fow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /v2/hotels/{hotel_id}",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Fow Hotel\",\n\t\"stars\": 5,\n\t\"daily_rate\": 1800.00,\n\t\"city\": \"SP\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:5000/v2/hotels/fow",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "5000",
+							"path": [
+								"v2",
+								"hotels",
+								"fow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /v2/hotels/{hotel_id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:5000/v2/hotels/fow",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "5000",
+							"path": [
+								"v2",
+								"hotels",
+								"fow"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "v2 API - data in sqlite",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "http://127.0.0.1:5000/healthcheck/",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://0.0.0.0:5000/hotels/",
+					"raw": "http://127.0.0.1:5000/healthcheck/",
 					"protocol": "http",
 					"host": [
+						"127",
 						"0",
 						"0",
-						"0",
-						"0"
+						"1"
 					],
 					"port": "5000",
 					"path": [
-						"hotels",
+						"healthcheck",
 						""
 					]
-				},
-				"description": "Get all Hoteis"
-			},
-			"response": []
-		},
-		{
-			"name": "GET /hotels/{hotel_id}",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://0.0.0.0:5000/hotels/alpha",
-					"protocol": "http",
-					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
-					],
-					"port": "5000",
-					"path": [
-						"hotels",
-						"alpha"
-					]
-				},
-				"description": "Get hotel by id"
-			},
-			"response": []
-		},
-		{
-			"name": "POST /hotels/{hotel_id}",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Solar-8 Hotel\",\n\t\"stars\": 5,\n\t\"daily_rate\": 5550.000,\n\t\"city\": \"CA\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://0.0.0.0:5000/hotels/flask-8solar",
-					"protocol": "http",
-					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
-					],
-					"port": "5000",
-					"path": [
-						"hotels",
-						"flask-8solar"
-					]
-				},
-				"description": "POST hotel by id"
-			},
-			"response": []
-		},
-		{
-			"name": "PUT /hotels/{hotel_id}",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"url": {
-					"raw": "http://0.0.0.0:5000/hotels/{hote_id}",
-					"protocol": "http",
-					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
-					],
-					"port": "5000",
-					"path": [
-						"hotels",
-						"{hote_id}"
-					]
-				},
-				"description": "PUT hotel by id"
-			},
-			"response": []
-		},
-		{
-			"name": "DELETE /hotels/{hotel_id}",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://0.0.0.0:5000/hotels/{hote_id}",
-					"protocol": "http",
-					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
-					],
-					"port": "5000",
-					"path": [
-						"hotels",
-						"{hote_id}"
-					]
-				},
-				"description": "DELETE hotel by id"
+				}
 			},
 			"response": []
 		}
