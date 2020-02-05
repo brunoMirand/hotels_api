@@ -43,10 +43,10 @@ $    make usage
 - DELETE /hotel/id
 
 ## Documentation
-- To speed up the use of API, use [postman requests collection](docs/postman/v1/REST-API-FLASK.postman_collection.json)
+- To speed up the use of API, use [postman requests collection](docs/postman/v2/REST-API-FLASK.postman_collection.json)
 
 
 ## Contribuiting
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/rafaeldias98/python-customer-api/issues/new)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/brunoMiranda8922/hotels_api/issues/new)
 
 - If you find any problem or have a suggestion, please [open an issue](https://github.com/brunoMiranda8922/hotels_api/issues/new).
