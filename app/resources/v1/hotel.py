@@ -1,5 +1,6 @@
-from flask_restful import Resource, reqparse
+from flask_restful import Resource
 from app.models.hotel import HotelModel
+from app.resources.request_parser import RequestParser
 
 
 hotels = [
@@ -38,14 +39,6 @@ class Hotel(Resource):
                 return hotel
         return None
 
-    def get_body_args(self):
-        body_args = reqparse.RequestParser()
-        body_args.add_argument('name')
-        body_args.add_argument('stars')
-        body_args.add_argument('daily_rate')
-        body_args.add_argument('city')
-        return body_args.parse_args()
-
     def mount_body(self, hotel_id, body):
         built_body = {
             'hotel_id': hotel_id,
@@ -63,7 +56,10 @@ class Hotel(Resource):
         return {'message': 'Hotel not found'}, 404
 
     def post(self, hotel_id):
-        body = self.get_body_args()
+        if self.find_hotel_by_id(hotel_id):
+            return {'message': 'Hotel id %s already exists.' % hotel_id}, 400
+
+        body = RequestParser().get_body_args()
         # new_hotel = self.mount_body(hotel_id, body)
         new_hotel = HotelModel(hotel_id, **body).json()
 
@@ -71,7 +67,7 @@ class Hotel(Resource):
         return new_hotel, 201
 
     def put(self, hotel_id):
-        body = self.get_body_args()
+        body = RequestParser().get_body_args()
         # new_hotel = self.mount_body(hotel_id, body)
         new_hotel = HotelModel(hotel_id, **body).json()
 
