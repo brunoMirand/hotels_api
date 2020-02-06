@@ -1,7 +1,7 @@
 # REST API + FLASK
 
 * V1 API made to manage several hotels in memory.
-* V2 API made to mange serveral hotels using sqlite.
+* V2 API made to manage serveral hotels using sqlite.
 
 ##  Summary
 1. [Stack]()
