@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api
-from resources.hotel import Hotels, Hotel
+from app.resources.hotel import Hotels, Hotel
 
 
 app = Flask(__name__)
@@ -11,6 +11,10 @@ api = Api(app)
 api.add_resource(Hotels, '/hotels/')
 api.add_resource(Hotel, '/hotels/<string:hotel_id>')
 
+@app.route('/healthcheck/', methods=['GET'])
+def healthcheck():
+    return 'OK'
+
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')

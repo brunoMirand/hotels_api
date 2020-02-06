@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "bc0844fd-6c2e-446c-b1c2-2e65a98e8694",
+		"name": "REST API FLASK",
+		"description": "Colletion created for project REST API FLASK",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /hotels",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:5000/hotels/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"hotels",
+						""
+					]
+				},
+				"description": "Get all Hoteis"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /hotels/{hotel_id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:5000/hotels/alpha",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"hotels",
+						"alpha"
+					]
+				},
+				"description": "Get hotel by id"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /hotels/{hotel_id}",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Solar-8 Hotel\",\n\t\"stars\": 5,\n\t\"daily_rate\": 5550.000,\n\t\"city\": \"CA\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:5000/hotels/flask-8solar",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"hotels",
+						"flask-8solar"
+					]
+				},
+				"description": "POST hotel by id"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /hotels/{hotel_id}",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:5000/hotels/{hote_id}",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"hotels",
+						"{hote_id}"
+					]
+				},
+				"description": "PUT hotel by id"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /hotels/{hotel_id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:5000/hotels/{hote_id}",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"hotels",
+						"{hote_id}"
+					]
+				},
+				"description": "DELETE hotel by id"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
