@@ -6,7 +6,7 @@ from app.resources.request_parser import RequestParser
 class Hotels(Resource):
     def get(self):
         hotels = HotelModel.fetch_all()
-        return {'Hotels': hotels}, 200
+        return hotels, 200
 
 
 class Hotel(Resource):
@@ -22,7 +22,10 @@ class Hotel(Resource):
             return {'message': 'Hotel id %s already exists.' % hotel_id}, 422
         body = RequestParser().get_body_args()
         new_hotel = HotelModel(hotel_id, **body)
-        new_hotel.save_hotel()
+        try:
+            new_hotel.save_hotel()
+        except:
+            return {'message': 'cannot save hotel, internal server error.'}, 500
         return new_hotel.json(), 201
 
     def put(self, hotel_id):
@@ -33,7 +36,10 @@ class Hotel(Resource):
             hotel.save_hotel()
             return hotel.json(), 200
         new_hotel = HotelModel(hotel_id, **body)
-        new_hotel.save_hotel()
+        try:
+            new_hotel.save_hotel()
+        except:
+            return {'message': 'cannot save hotel, internal server error.'}, 500
         return new_hotel.json(), 201
 
     def delete(self, hotel_id):
@@ -42,4 +48,3 @@ class Hotel(Resource):
             hotel.delete_hotel()
             return {'message': 'Hotel id %s deleted.' % hotel_id}, 200
         return {'message': 'Hotel id %s not found.' % hotel_id}, 404
-
