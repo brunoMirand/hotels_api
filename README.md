@@ -1,6 +1,7 @@
 # REST API + FLASK
 
-* API made to manage several hotels in memory.
+* V1 API made to manage several hotels in memory.
+* V2 API made to mange serveral hotels using sqlite.
 
 ##  Summary
 1. [Stack]()
@@ -36,14 +37,14 @@ $    make usage
 
 ## Endpoints
 
-- GET   /hotels
-- GET   /hotel/id
-- POST  /hotel/id
-- PUT   /hotel/id
-- DELETE /hotel/id
+- GET    /{version}/hotels/
+- GET    /{version}/hotel/id/
+- POST   /{version}/hotel/id/
+- PUT    /{version}/hotel/id/
+- DELETE /{version}/hotel/id/
 
 ## Documentation
-- To speed up the use of API, use [postman requests collection](docs/postman/v2/REST-API-FLASK.postman_collection.json)
+- To speed up the use of API, use [postman requests collection](docs/postman/REST-API-FLASK.postman_collection.json)
 
 
 ## Contribuiting
