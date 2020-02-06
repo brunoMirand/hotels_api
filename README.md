@@ -1,6 +1,7 @@
 # REST API + FLASK
 
-* API made to manage several hotels in memory.
+* V1 API made to manage several hotels in memory.
+* V2 API made to manage serveral hotels using sqlite.
 
 ##  Summary
 1. [Stack]()
@@ -36,17 +37,17 @@ $    make usage
 
 ## Endpoints
 
-- GET   /hotels
-- GET   /hotel/id
-- POST  /hotel/id
-- PUT   /hotel/id
-- DELETE /hotel/id
+- GET    /{version}/hotels/
+- GET    /{version}/hotel/id/
+- POST   /{version}/hotel/id/
+- PUT    /{version}/hotel/id/
+- DELETE /{version}/hotel/id/
 
 ## Documentation
 - To speed up the use of API, use [postman requests collection](docs/postman/REST-API-FLASK.postman_collection.json)
 
 
 ## Contribuiting
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/rafaeldias98/python-customer-api/issues/new)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/brunoMiranda8922/hotels_api/issues/new)
 
 - If you find any problem or have a suggestion, please [open an issue](https://github.com/brunoMiranda8922/hotels_api/issues/new).
