@@ -17,10 +17,10 @@ class Hotel(Resource):
         return {'message': 'Hotel not %s found.' % hotel_id}, 404
 
     def post(self, hotel_id):
+        body = RequestParser().get_body_args()
         hotel = HotelModel.find_hotel_by_id(hotel_id)
         if hotel:
             return {'message': 'Hotel id %s already exists.' % hotel_id}, 422
-        body = RequestParser().get_body_args()
         new_hotel = HotelModel(hotel_id, **body)
         try:
             new_hotel.save_hotel()

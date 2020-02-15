@@ -2,11 +2,13 @@ from flask import Flask
 from flask_restful import Api
 from app.resources.v1.hotel import Hotels, Hotel
 from app.resources.v2.hotel import Hotels as hotels_v2, Hotel as hotel_v2
+from app.resources.v2.user import Users, User, Login
+from flask_jwt_extended import JWTManager
 
 
 app = Flask(__name__)
 app.config.from_object('config')
-
+jwt = JWTManager(app)
 api = Api(app)
 
 # v1 resources
@@ -16,6 +18,10 @@ api.add_resource(Hotel, '/v1/hotels/<string:hotel_id>')
 # v2 resources
 api.add_resource(hotels_v2, '/v2/hotels/', endpoint='hotels_v2')
 api.add_resource(hotel_v2, '/v2/hotels/<string:hotel_id>', endpoint='hotel_v2')
+
+api.add_resource(Users, '/v2/users/')
+api.add_resource(User, '/v2/users/<int:id>', endpoint="user_id")
+api.add_resource(Login, '/v2/login/')
 
 
 @app.before_first_request
