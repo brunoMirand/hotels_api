@@ -1,9 +1,11 @@
 from flask_restful import Resource
 from app.models.hotel import HotelModel
 from app.resources.request_parser import RequestParser
+from flask_jwt_extended import jwt_required
 
 
 class Hotels(Resource):
+    @jwt_required
     def get(self):
         hotels = HotelModel.fetch_all()
         return hotels, 200

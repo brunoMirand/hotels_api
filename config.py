@@ -9,3 +9,6 @@ SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASEDIR, 'storage.db')
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 JWT_SECRET_KEY = 'super-flash'
+JWT_ERROR_MESSAGE_KEY = 'message'
+JWT_HEADER_TYPE = 'Travolta'
+
