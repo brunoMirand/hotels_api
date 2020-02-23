@@ -12,12 +12,14 @@ class Hotels(Resource):
 
 
 class Hotel(Resource):
+    @jwt_required
     def get(self, hotel_id):
         hotel = HotelModel.find_hotel_by_id(hotel_id)
         if hotel:
             return hotel.json()
         return {'message': 'Hotel not %s found.' % hotel_id}, 404
 
+    @jwt_required
     def post(self, hotel_id):
         body = RequestParser().get_body_args()
         hotel = HotelModel.find_hotel_by_id(hotel_id)
@@ -30,6 +32,7 @@ class Hotel(Resource):
             return {'message': 'cannot save hotel, internal server error.'}, 500
         return new_hotel.json(), 201
 
+    @jwt_required
     def put(self, hotel_id):
         body = RequestParser().get_body_args()
         hotel = HotelModel.find_hotel_by_id(hotel_id)
@@ -44,6 +47,7 @@ class Hotel(Resource):
             return {'message': 'cannot save hotel, internal server error.'}, 500
         return new_hotel.json(), 201
 
+    @jwt_required
     def delete(self, hotel_id):
         hotel = HotelModel.find_hotel_by_id(hotel_id)
         if hotel:
