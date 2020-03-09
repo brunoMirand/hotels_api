@@ -1,4 +1,5 @@
 from database import db
+from connection import ConnectionDatabase
 
 
 class HotelModel(db.Model):
@@ -30,6 +31,16 @@ class HotelModel(db.Model):
         if hotel:
             return hotel
         return None
+
+    @classmethod
+    def find_hotel_by_params(cls):
+        return 'SELECT * FROM hotels \
+                    WHERE (stars > ? AND stars < ?) \
+                        LIMIT ? OFFSET ?'
+
+    @classmethod
+    def connection_database(cls):
+        return ConnectionDatabase().connection_database()
 
     def save_hotel(self):
         db.session.add(self)
