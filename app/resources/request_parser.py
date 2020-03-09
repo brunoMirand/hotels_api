@@ -16,3 +16,12 @@ class RequestParser():
         body_args.add_argument('login', type=str, required=True, help="The field 'login' is required - (string).")
         body_args.add_argument('password', type=str, required=True, help="The field 'password' is required - (string).")
         return body_args.parse_args()
+
+    def get_params_args(self):
+        params_args = reqparse.RequestParser()
+        params_args.add_argument('city', type=str)
+        params_args.add_argument('stars_min', type=float, default=0)
+        params_args.add_argument('stars_max', type=float, default=5)
+        params_args.add_argument('limit', type=float, default=50)
+        params_args.add_argument('offset', type=float, default=0)
+        return params_args.parse_args()
