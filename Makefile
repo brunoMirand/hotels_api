@@ -1,4 +1,4 @@
-.PHONY: usage, start, stop, build
+.PHONY: usage, start, stop, build, start-build
 
 OK_COLOR=\033[32;01m
 NO_COLOR=\033[0m
@@ -18,7 +18,7 @@ usage: Makefile
 ## start: start compose
 start:
 	@echo "$(OK_COLOR)==> Starting docker compose...$(NO_COLOR)"
-	$(DOCKER_COMPOSE) up --build
+	$(DOCKER_COMPOSE) up
 
 ## stop: stop composer
 stop:
@@ -29,3 +29,8 @@ stop:
 build:
 	@echo "$(OK_COLOR)==> Build Dockerfile...$(NO_COLOR)"
 	$(DOCKER_COMPOSE) build --no-cache
+
+##start-build: docker-compose up --build
+start-build:
+	@echo "$(OK_COLOR)==> Starting docker compose up build...$(NO_COLOR)"
+	$(DOCKER_COMPOSE) up --build

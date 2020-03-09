@@ -47,6 +47,7 @@ class HotelModel(db.Model):
 
     def json(self):
         return {
+            'id': self.id,
             'hotel_id': self.hotel_id,
             'name': self.name,
             'stars': self.stars,
