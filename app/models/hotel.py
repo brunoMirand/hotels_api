@@ -33,10 +33,20 @@ class HotelModel(db.Model):
         return None
 
     @classmethod
-    def find_hotel_by_params(cls):
-        return 'SELECT * FROM hotels \
-                    WHERE (stars > ? AND stars < ?) \
-                        LIMIT ? OFFSET ?'
+    def find_hotel_by_params(cls, params):
+        database = cls.connection_database()
+
+        city = True
+        paramCity = ''
+        if city:
+            paramCity = 'city = ? AND '
+
+        query = 'SELECT * FROM hotels \
+                        WHERE {} \
+                            (stars > ? AND stars < ?) \
+                                LIMIT ? OFFSET ?'.format(paramCity)
+        database.execute(query, params)
+        return database.fetchall()
 
     @classmethod
     def connection_database(cls):
