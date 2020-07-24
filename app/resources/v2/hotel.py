@@ -8,16 +8,15 @@ class Hotels(Resource):
     @jwt_required
     def get(self):
         params_url = RequestParser().get_params_args()
-        if params_url.city:
-            params = {
-                key: params_url[key]
-                for key in params_url if params_url[key] is not None
-            }
-            param = tuple([params[key] for key in params])
-            result_query = HotelModel.find_hotel_by_params(param)
-            print(result_query)
-            return {'hotel': 'result_query'}, 200
-        return HotelModel.fetch_all(), 200
+        params = {
+            key: params_url[key]
+            for key in params_url if params_url[key] is not None
+        }
+        param = tuple([params[key] for key in params])
+
+        result_query = HotelModel.find_hotel(params_url, param)
+
+        return result_query, 200
 
 
 class Hotel(Resource):
