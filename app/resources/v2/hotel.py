@@ -7,8 +7,16 @@ from flask_jwt_extended import jwt_required
 class Hotels(Resource):
     @jwt_required
     def get(self):
-        hotels = HotelModel.fetch_all()
-        return hotels, 200
+        params_url = RequestParser().get_params_args()
+        params = {
+            key: params_url[key]
+            for key in params_url if params_url[key] is not None
+        }
+        param = tuple([params[key] for key in params])
+
+        result_query = HotelModel.find_hotel(params_url, param)
+
+        return result_query, 200
 
 
 class Hotel(Resource):
